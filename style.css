@@ -207,4 +207,16 @@ section h1{
   .sport p{
     font-size:16px;
   }
+  .container h1{
+    font-size:2.5rem;
+  }
+  .container ul li a{
+    font-size:1.5rem;
+  }
+  section h1{
+    font-size:2.0rem;
+    height:60px;
+    line-height: 60px;
+    margin-bottom:20px;
+  }
 }
