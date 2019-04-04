@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Play & Learn | Sports</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+
+  
+    <section id="sports">
+        <h1><a href="animals.html"><i class="fas fa-chevron-left"></i></a> Sports<a href=".html"></i></a></h1>
+        
+        <div class="content-container">
+        <div class="sporty">
+          <div data-key="archery" class="sport">
+            <img src="iconfinder_Sport__Sport_Archery_Focus_Goal_Success_3873108.png" alt="">
+            <p>Archery</p>
+          </div>
+          <div data-key="badminton" class="sport">
+            <img src="iconfinder_Badminton_Icon_set-16_3689835.png" alt="">
+            <p>Badminton</p>
+          </div>
+          <div data-key="baseball" class="sport">
+            <img src="iconfinder_baseball_103279.png" alt="">
+            <p>Baseball</p>
+          </div>
+          <div data-key="basketball" class="sport">
+            <img src="iconfinder_basketball_103278.png" alt="">
+            <p>Basketball</p>
+          </div>
+          <div data-key="bowling" class="sport">
+            <img src="iconfinder_bowling_310361.png" alt="">
+            <p>Bowling</p>
+          </div>
+          <div data-key="boxing" class="sport">
+            <img src="iconfinder_gym-fight-punch-boxing_gloves-sports_and_competition-boxing-athlete-olympic-training-gloves-sport_4394728.png" alt="">
+            <p>Boxing</p>
+          </div>
+          <div data-key="horse-racing" class="sport">
+            <img src="iconfinder_Adobe Premiere_51168.png" alt="">
+            <p>Horse Racing</p>
+          </div>
+          <div data-key="karate" class="sport">
+            <img src="iconfinder_Karate_102920.png" alt="">
+            <p>Karate</p>
+          </div>
+          <div data-key="soccer" class="sport">
+            <img src="iconfinder_02_Soccer_300768.png" alt="">
+            <p>Soccer</p>
+          </div>
+          <div data-key="table-tennis" class="sport">
+            <img src="iconfinder_Ping_pong_racket_2638317.png" alt="">
+            <p>Table Tennis</p>
+          </div>
+          <div data-key="snooker" class="sport">
+            <img src="iconfinder_Billiards_3525370.png" alt="">
+            <p>Snooker</p>
+          </div>
+          <div data-key="tennis" class="sport">
+            <img src="iconfinder_tennis_309009.png" alt="">
+            <p>Tennis</p>
+          </div>
+        
+         
+          </div>
+        </div>
+    
+    
+        <audio src="8d82b5_Archery_Arrow_Hit_Sound_Effect.mp3" data-key="archery"></audio>
+        <audio src="8d82b5_Badminton_Ball_Single_Hit_Sound_Effect.mp3" data-key="badminton"></audio>
+        <audio src="8d82b5_Baseball_Bat_Hit_Sound_Effect.mp3" data-key="baseball"></audio>
+        <audio src="8d82b5_Basketball_Bounce_Sound_Effect.mp3" data-key="basketball"></audio>
+        <audio src="8d82b5_Bowling_Ball_Miss_Sound_Effect.mp3" data-key="bowling"></audio>
+        <audio src=
+        "8d82b5_Boxing_Fighting_Sound_Effect.mp3" data-key="boxing"></audio>
+        <audio src="8d82b5_Horse_Racing_Pass_Sound_Effect.mp3" data-key="horse-racing"></audio>
+        <audio src="8d82b5_Karate_Class_Approaching_Sound_Effect.mp3" data-key="karate"></audio>
+        <audio src="8d82b5_Soccer_Goal_Sound_Effect.mp3" data-key="soccer"></audio>
+        <audio src="8d82b5_Table_Tennis_Amateurs_Playing_Sound_Effect.mp3" data-key="table-tennis"></audio>
+        <audio src="8d82b5_Snooker_One_Shot_Sound_Effect.mp3" data-key="snooker"></audio>
+        <audio src="8d82b5_Tennis_Serve_Sound_Effect.mp3" data-key="tennis"></audio>
+        
+        
+    
+    
+      </section>
+  
+
+<script>
+
+const games=document.querySelectorAll(".sport");
+  
+
+  function sound(e){  
+    const keyGame=this.getAttribute("data-key");
+    const clickedGame=this;
+    const audio=document.querySelector(`audio[data-key=${keyGame}]`);
+    if(!audio)return;
+    audio.currentTime=0;
+    audio.play();
+    clickedGame.classList.add("playing");
+    console.log(clickedGame)
+  }
+
+  function removePlaying(e){
+    if(e.propertyName!=="transform")return;
+    this.classList.remove("playing")
+  }
+
+  games.forEach(game=>game.addEventListener("click",sound))
+  games.forEach(game=>game.addEventListener("transitionend",removePlaying))
+
+</script>
+</body>
+</html>
