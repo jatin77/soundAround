@@ -180,3 +180,31 @@ section h1{
   background: #f8f8ff;
   z-index:1;
 }
+@media(max-width:380px){
+  .key{
+    width:45px;
+    font-size:20px;
+    height:45px;
+  }
+  
+  .animal{
+    width:60px;
+    height:60px;
+  }
+  .animal img{
+    width:35px;
+  }
+  .animal p{
+    font-size:16px;
+  }
+  .sport{
+    width:70px;
+    height:70px;
+  }
+  .sport img{
+    width:30px;
+  }
+  .sport p{
+    font-size:16px;
+  }
+}
