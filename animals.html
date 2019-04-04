@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Play & Learn | Animals</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+
+  
+    <section id="animals">
+        <h1><a href="alphabets.html"><i class="fas fa-chevron-left"></i></a> Animal <a href="sports.html"><i class="fas fa-chevron-right"></i></a></h1>
+        
+        <div class="content-container">
+        <div class="creatures">
+          <div data-key="lion" class="animal">
+            <img src="iconfinder_lion_3406433.png" alt="">
+            <p>Lion</p>
+          </div>
+          <div data-key="dog" class="animal">
+            <img src="iconfinder_Pet_patient_3775240.png" alt="">
+            <p>Dog</p>
+          </div>
+          <div data-key="wolf" class="animal">
+            <img src="iconfinder_0204-spooky-werewolf_64_339738.png" alt="">
+            <p>Wolf</p>
+          </div>
+          <div data-key="elephant" class="animal">
+            <img src="iconfinder_elephant_3406443.png" alt="">
+            <p>Elephant</p>
+          </div>
+          <div data-key="monkey" class="animal">
+            <img src="iconfinder_monkey_3406431.png" alt="">
+            <p>Monkey</p>
+          </div>
+          <div data-key="crocodile" class="animal">
+            <img src="iconfinder_crocodile_3406445.png" alt="">
+            <p>Crocodile</p>
+          </div>
+          <div data-key="bull" class="animal">
+            <img src="iconfinder_bull-animal-pet-wild-domestic_3204626.png" alt="">
+            <p>Bull</p>
+          </div>
+          <div data-key="dolphin" class="animal">
+            <img src="iconfinder_dolphin_3406442.png" alt="">
+            <p>Dolphin</p>
+          </div>
+          <div data-key="frog" class="animal">
+            <img src="iconfinder_46_-_Harry_Potter_-_Outline_-_Chocolate_Frog_2730155.png" alt="">
+            <p>Frog</p>
+          </div>
+          <div data-key="snake" class="animal">
+            <img src="iconfinder_snake-animal-pet-wild-domestic_3204560.png" alt="">
+            <p>Snake</p>
+          </div>
+          <div data-key="bug" class="animal">
+            <img src="iconfinder_miscellaneous-67_809439.png" alt="">
+            <p>Bug</p>
+          </div>
+          <div data-key="pig" class="animal">
+            <img src="iconfinder_money_box_1370035 (1).png" alt="">
+            <p>Pig</p>
+          </div>
+          <div data-key="chicken" class="animal">
+            <img src="iconfinder_money_box_1370035 (1).png" alt="">
+            <p>Chicken</p>
+          </div>
+          <div data-key="deer" class="animal">
+            <img src="iconfinder_deer_3406417.png" alt="">
+            <p>Deer</p>
+          </div>
+          <div data-key="camel" class="animal">
+            <img src="iconfinder_camel_ramadan_hand_drawn_3213257.png" alt="">
+            <p>Camel</p>
+          </div>
+          </div>
+        </div>
+    
+    
+        <audio src="1a0ada_Lion_Roar_Up_Close_Sound_Effect.mp3" data-key="lion"></audio>
+        <audio src="8d82b5_Dog_Barking_Sound_Effect.mp3" data-key="dog"></audio>
+        <audio src="8d82b5_Wolves_Howl_Sound_Effect.mp3" data-key="wolf"></audio>
+        <audio src="iconfinder_elephant_3406443.png" data-key="elephant"></audio>
+        <audio src="iconfinder_money_box_1370035 (1).png" data-key="monkey"></audio>
+        <audio src="" data-key="crocodile"></audio>
+        <audio src="8d82b5_Bull_Moose_Sound_Effect.mp3" data-key="bull"></audio>
+        <audio src="8d82b5_Dolphin_Sound_Effect.mp3" data-key="dolphin"></audio>
+        <audio src="8d82b5_Golden_Bell_Frog_Sound_Effect.mp3" data-key="frog"></audio>
+        <audio src="8d82b5_Snake_Hiss_Sound_Effect.mp3" data-key="snake"></audio>
+        <audio src="8d82b5_Grasshoppers_Sound_Effect.mp3" data-key="bug"></audio>
+        <audio src="8d82b5_Pig_Squeal_Sound_Effect.mp3" data-key="pig"></audio>
+        <audio src="8d82b5_Cock_Crows_Sound_FX.mp3" data-key="chicken"></audio>
+        <audio src="8d82b5_Deer_Snort_Sound_Effect.mp3" data-key="deer"></audio>
+        <audio src="8d82b5_Camel_Groan_Sound_Effect.mp3" data-key="camel"></audio>
+      
+        
+    
+    
+      </section>
+  
+
+<script>
+
+const creatures=document.querySelectorAll(".animal");
+  
+
+  function sound(e){  
+    const keyAnimal=this.getAttribute("data-key");
+    const clickedAnimal=this;
+    const audio=document.querySelector(`audio[data-key=${keyAnimal}]`);
+    if(!audio)return;
+    audio.currentTime=0;
+    audio.play();
+    clickedAnimal.classList.add("playing");
+    console.log(clickedAnimal)
+  }
+
+  function removePlaying(e){
+    if(e.propertyName!=="transform")return;
+    this.classList.remove("playing")
+  }
+
+  creatures.forEach(creature=>creature.addEventListener("click",sound))
+  creatures.forEach(creature=>creature.addEventListener("transitionend",removePlaying))
+
+</script>
+</body>
+</html>

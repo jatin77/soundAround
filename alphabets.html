@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Play & Learn | Alphabets</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+
+
+
+  <section id="letters">
+    <h1><a href="index.html"><i class="fas fa-chevron-left"></i></a> Alphabets <a href="animals.html"><i class="fas fa-chevron-right"></i></a></h1>
+    
+    <div class="content-container">
+    <div class="keys">
+      <div data-key="A" class="key">A</div>
+      <div data-key="B" class="key">B</div>
+      <div data-key="C" class="key">C</div>
+      <div data-key="D" class="key">D</div>
+      <div data-key="E" class="key">E</div>
+      <div data-key="F" class="key">F</div>
+      <div data-key="G" class="key">G</div>
+      <div data-key="H" class="key">H</div>
+      <div data-key="I" class="key">I</div>
+      <div data-key="J" class="key">J</div>
+      <div data-key="K" class="key">K</div>
+      <div data-key="L" class="key">L</div>
+      <div data-key="M" class="key">M</div>
+      <div data-key="N" class="key">N</div>
+      <div data-key="O" class="key">O</div>
+      <div data-key="P" class="key">P</div>
+      <div data-key="Q" class="key">Q</div>
+      <div data-key="R" class="key">R</div>
+      <div data-key="S" class="key">S</div>
+      <div data-key="T" class="key">T</div>
+      <div data-key="U" class="key">U</div>
+      <div data-key="V" class="key">V</div>
+      <div data-key="W" class="key">W</div>
+      <div data-key="X" class="key">X</div>
+      <div data-key="Y" class="key">Y</div>
+      <div data-key="Z" class="key">Z</div>
+      </div>
+    </div>
+
+
+    <audio src="8d82b5_Letter_A_Sound_Effect.mp3" data-key="A"></audio>
+    <audio src="8d82b5_Letter_B_Sound_Effect.mp3" data-key="B"></audio>
+    <audio src="8d82b5_Letter_C_Sound_Effect.mp3" data-key="C"></audio>
+    <audio src="8d82b5_Letter_D_Sound_Effect.mp3" data-key="D"></audio>
+    <audio src="8d82b5_Letter_E_Sound_Effect.mp3" data-key="E"></audio>
+    <audio src="8d82b5_Letter_F_Sound_Effect.mp3" data-key="F"></audio>
+    <audio src="8d82b5_Letter_G_Sound_Effect.mp3" data-key="G"></audio>
+    <audio src="8d82b5_Letter_H_Sound_Effect.mp3" data-key="H"></audio>
+    <audio src="8d82b5_Letter_I_Sound_Effect.mp3" data-key="I"></audio>
+    <audio src="8d82b5_Letter_J_Sound_Effect.mp3" data-key="J"></audio>
+    <audio src="8d82b5_Letter_K_Sound_Effect.mp3" data-key="K"></audio>
+    <audio src="8d82b5_Letter_L_Sound_Effect.mp3" data-key="L"></audio>
+    <audio src="8d82b5_Letter_M_Sound_Effect.mp3" data-key="M"></audio>
+    <audio src="8d82b5_Letter_N_Sound_Effect.mp3" data-key="N"></audio>
+    <audio src="8d82b5_Letter_O_Sound_Effect.mp3" data-key="O"></audio>
+    <audio src="8d82b5_Letter_P_Sound_Effect.mp3" data-key="P"></audio>
+    <audio src="8d82b5_Letter_Q_Sound_Effect.mp3" data-key="Q"></audio>
+    <audio src="8d82b5_Letter_R_Sound_Effect.mp3" data-key="R"></audio>
+    <audio src="8d82b5_Letter_S_Sound_Effect.mp3" data-key="S"></audio>
+    <audio src="8d82b5_Letter_T_Sound_Effect.mp3" data-key="T"></audio>
+    <audio src="8d82b5_Letter_U_Sound_Effect.mp3" data-key="U"></audio>
+    <audio src="8d82b5_Letter_V_Sound_Effect.mp3" data-key="V"></audio>
+    <audio src="8d82b5_Letter_W_Sound_Effect.mp3" data-key="W"></audio>
+    <audio src="8d82b5_Letter_X_Sound_Effect.mp3" data-key="X"></audio>
+    <audio src="8d82b5_Letter_Y_Sound_Effect.mp3" data-key="Y"></audio>
+    <audio src="8d82b5_Letter_Z_Sound_Effect.mp3" data-key="Z"></audio>
+    
+
+
+  </section>
+ 
+
+<script>
+
+  const keys=document.querySelectorAll(".key");
+  
+
+  function sound(e){  
+    const keyLetter=this.getAttribute("data-key");
+    const clickedLetter=this;
+    const audio=document.querySelector(`audio[data-key=${keyLetter}]`);
+    if(!audio)return;
+    audio.currentTime=0;
+    audio.play();
+    clickedLetter.classList.add("playing");
+    console.log(clickedLetter)
+  }
+
+  function removePlaying(e){
+    if(e.propertyName!=="transform")return;
+    this.classList.remove("playing")
+  }
+
+  keys.forEach(key=>key.addEventListener("click",sound))
+  keys.forEach(key=>key.addEventListener("transitionend",removePlaying))
+
+</script>
+</body>
+</html>
